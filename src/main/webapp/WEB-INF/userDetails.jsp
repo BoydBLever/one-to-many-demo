@@ -18,6 +18,27 @@
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-   
+   <h1>User details</h1>
+   <h2>Username: <c:out value="${user.userName }"/> </h2>
+   <h2>Email: <c:out value="${user.email }"/> </h2>
+   <table>
+	<thead>
+		<tr>
+			<th>Donation</th>
+			<th>Quantity</th>
+	
+		</tr>
+	</thead>
+	<tbody>
+		<c:forEach var="eachDonation" items="${user.donatedItems }">
+			<tr>
+				<td> <a href="/donations/${eachDonation.id }">
+				<c:out value="${eachDonation.donationName}"/></a></td>
+				<td> <c:out value="${eachDonation.quantity }"/></td>
+			</tr>
+		</c:forEach>
+	</tbody>
+</table>
+<a href="/"> Go Back </a>
 </body>
 </html>
